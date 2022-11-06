@@ -35,7 +35,11 @@ get num of ip's :  >>   dhcp-lease-list --lease | cut -d " " -f 3 | grep -E '^((
 get status : >> service isc-dhcp-server status 
 ```
 # Examples
+## before attack : 
 <img width="1029" alt="Screen Shot 2022-11-06 at 23 29 38" src="https://user-images.githubusercontent.com/90776557/200196854-ae2474ed-e29c-40b9-9efb-c1033a559eb7.png">
+
+## after attack 
+
 <img width="908" alt="Screen Shot 2022-11-06 at 23 30 12" src="https://user-images.githubusercontent.com/90776557/200196862-9cc45ded-4d95-4443-91ea-4ee154cfca8f.png">
 <img width="1279" alt="Screen Shot 2022-11-06 at 23 40 45" src="https://user-images.githubusercontent.com/90776557/200196871-661b744d-9e4a-4a81-a9c1-3b569a4b3542.png">
 
