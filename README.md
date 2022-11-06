@@ -52,6 +52,7 @@ get status : >> service isc-dhcp-server status
 
 <img width="848" alt="Screen Shot 2022-11-06 at 23 50 40" src="https://user-images.githubusercontent.com/90776557/200197086-af0e9dec-69b5-4c3c-9491-0c29f4e0b82e.png">
 
+#### dhcp shceme  photo from : https://www.process.com/docs/tcpware6_1/manage/chapter_4_files/image001.png
 
 
 
