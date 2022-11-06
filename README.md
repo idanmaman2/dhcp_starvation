@@ -44,12 +44,12 @@ get status : >> service isc-dhcp-server status
 <img width="1279" alt="Screen Shot 2022-11-06 at 23 40 45" src="https://user-images.githubusercontent.com/90776557/200196871-661b744d-9e4a-4a81-a9c1-3b569a4b3542.png">
 
 # persistent - Mantian connection on 50% and 87.5% time 
-
+<img width="477" alt="Screen Shot 2022-11-06 at 23 45 51" src="https://www.process.com/docs/tcpware6_1/manage/chapter_4_files/image001.png">
 <img width="477" alt="Screen Shot 2022-11-06 at 23 45 51" src="https://user-images.githubusercontent.com/90776557/200196919-9d274bbe-a020-4d13-bd6e-44b2af89b153.png">
 <img width="1231" alt="Screen Shot 2022-11-06 at 23 46 42" src="https://user-images.githubusercontent.com/90776557/200196931-759fd53c-11a0-4ed5-a2ce-6e5d62139cce.png">
 
 ### reconnection
-ר
+
 <img width="848" alt="Screen Shot 2022-11-06 at 23 50 40" src="https://user-images.githubusercontent.com/90776557/200197086-af0e9dec-69b5-4c3c-9491-0c29f4e0b82e.png">
 
 
