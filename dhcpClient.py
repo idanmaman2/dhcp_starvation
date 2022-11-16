@@ -93,6 +93,9 @@ class DHCPClient:
 		print("sending")
 		ack = srp1(pack,iface=self.__settings__["interface"],verbose=False)
 		optionsAck = ack[DHCP].options 
+		print('*'*20)
+		ack.show()
+		print("*"*20)
 		for i in optionsAck : 
 			if i[0] == "lease_time":
 				self.time  = i[1]
