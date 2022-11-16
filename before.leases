@@ -1,0 +1,4 @@
+Reading leases from /var/lib/dhcp/dhcpd.leases
+Processing:  1% completeMAC                IP              hostname       valid until         manufacturer        
+===============================================================================================
+00:0c:29:a9:06:6e  192.168.45.103  kali           2022-11-16 10:04:54 -NA-                

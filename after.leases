@@ -1,0 +1,53 @@
+Reading leases from /var/lib/dhcp/dhcpd.leases
+Processing:  0% completeProcessing:  0% completeProcessing:  0% completeProcessing:  0% completeProcessing:  1% completeProcessing:  1% completeProcessing:  1% completeProcessing:  1% completeProcessing:  1% completeProcessing:  2% completeProcessing:  2% completeProcessing:  2% completeProcessing:  2% completeProcessing:  2% completeProcessing:  3% completeProcessing:  3% completeProcessing:  3% completeProcessing:  3% completeProcessing:  4% completeProcessing:  4% completeProcessing:  4% completeProcessing:  4% completeProcessing:  4% completeProcessing:  5% completeProcessing:  5% completeProcessing:  5% completeProcessing:  5% completeProcessing:  5% completeProcessing:  6% completeProcessing:  6% completeProcessing:  6% completeProcessing:  6% completeProcessing:  7% completeProcessing:  7% completeProcessing:  7% completeProcessing:  7% completeProcessing:  7% completeProcessing:  8% completeProcessing:  8% completeProcessing:  8% completeProcessing:  8% completeProcessing:  8% completeProcessing:  9% completeProcessing:  9% completeProcessing:  9% completeProcessing:  9% completeProcessing: 10% completeProcessing: 10% completeProcessing: 10% completeProcessing: 10% completeProcessing: 10% completeProcessing: 11% completeProcessing: 11% completeProcessing: 11% completeProcessing: 11% completeProcessing: 11% completeProcessing: 12% completeProcessing: 12% completeProcessing: 12% completeProcessing: 12% completeProcessing: 12% completeProcessing: 13% completeProcessing: 13% completeProcessing: 13% completeProcessing: 13% completeProcessing: 14% completeProcessing: 14% completeProcessing: 14% completeProcessing: 14% completeProcessing: 14% completeProcessing: 15% completeProcessing: 15% completeProcessing: 15% completeProcessing: 15% completeProcessing: 15% completeProcessing: 16% completeProcessing: 16% completeProcessing: 16% completeProcessing: 16% completeProcessing: 17% completeProcessing: 17% completeProcessing: 17% completeProcessing: 17% completeProcessing: 17% completeProcessing: 18% completeProcessing: 18% completeProcessing: 18% completeProcessing: 18% completeProcessing: 18% completeProcessing: 19% completeProcessing: 19% completeProcessing: 19% completeProcessing: 19% completeProcessing: 20% completeProcessing: 20% completeProcessing: 20% completeProcessing: 20% completeProcessing: 20% completeProcessing: 21% completeMAC                IP              hostname       valid until         manufacturer        
+===============================================================================================
+00:0c:29:13:44:f3  192.168.45.101  kali           2022-11-16 10:09:33 -NA-                
+00:0c:29:a9:06:6e  192.168.45.100  kali           2022-11-16 10:09:26 -NA-                
+04:03:df:40:c2:ef  192.168.45.126  -NA-           2022-11-16 10:09:34 -NA-                
+06:40:4e:12:25:88  192.168.45.149  -NA-           2022-11-16 10:09:36 -NA-                
+0b:8e:bd:a7:52:db  192.168.45.142  -NA-           2022-11-16 10:09:35 -NA-                
+26:b2:df:b1:4a:1e  192.168.45.136  -NA-           2022-11-16 10:09:35 -NA-                
+27:bf:f6:20:bc:5d  192.168.45.145  -NA-           2022-11-16 10:09:36 -NA-                
+2c:a5:e6:91:cf:be  192.168.45.104  -NA-           2022-11-16 10:09:33 -NA-                
+3b:d1:80:f9:0c:6f  192.168.45.135  -NA-           2022-11-16 10:09:35 -NA-                
+3e:9d:f9:25:43:3f  192.168.45.118  -NA-           2022-11-16 10:09:33 -NA-                
+47:3a:ed:e1:28:9a  192.168.45.125  -NA-           2022-11-16 10:09:34 -NA-                
+52:78:c1:a2:e3:9c  192.168.45.113  -NA-           2022-11-16 10:09:33 -NA-                
+53:2c:65:ae:24:e0  192.168.45.130  -NA-           2022-11-16 10:09:34 -NA-                
+5e:9a:1d:35:1c:97  192.168.45.107  -NA-           2022-11-16 10:09:32 -NA-                
+60:8a:ae:8a:2d:32  192.168.45.143  -NA-           2022-11-16 10:09:36 -NA-                
+64:e1:90:e1:92:f7  192.168.45.131  -NA-           2022-11-16 10:09:35 -NA-                
+68:aa:61:37:36:e4  192.168.45.119  -NA-           2022-11-16 10:09:33 -NA-                
+6f:1d:0a:98:1c:48  192.168.45.140  -NA-           2022-11-16 10:09:35 -NA-                
+71:a9:24:b0:f0:cf  192.168.45.132  -NA-           2022-11-16 10:09:34 -NA-                
+77:d5:51:35:f2:db  192.168.45.146  -NA-           2022-11-16 10:09:36 -NA-                
+7e:9b:1e:2a:6a:fd  192.168.45.108  -NA-           2022-11-16 10:09:33 -NA-                
+80:d8:28:29:a3:0f  192.168.45.148  -NA-           2022-11-16 10:09:36 -NA-                
+81:76:89:64:30:63  192.168.45.102  -NA-           2022-11-16 10:09:32 -NA-                
+8b:3d:9a:ad:e9:ce  192.168.45.121  -NA-           2022-11-16 10:09:34 -NA-                
+8b:d8:03:98:cf:93  192.168.45.127  -NA-           2022-11-16 10:09:34 -NA-                
+91:c5:5a:67:a2:8b  192.168.45.139  -NA-           2022-11-16 10:09:35 -NA-                
+9c:8e:12:ca:c1:74  192.168.45.120  -NA-           2022-11-16 10:09:33 -NA-                
+9d:2c:ea:38:72:1a  192.168.45.115  -NA-           2022-11-16 10:09:33 -NA-                
+ad:64:ca:06:db:00  192.168.45.128  -NA-           2022-11-16 10:09:34 -NA-                
+af:c9:de:f9:4a:95  192.168.45.147  -NA-           2022-11-16 10:09:36 -NA-                
+b1:21:14:48:1e:be  192.168.45.122  -NA-           2022-11-16 10:09:34 -NA-                
+b1:bc:da:99:22:16  192.168.45.105  -NA-           2022-11-16 10:09:32 -NA-                
+b3:2e:ec:d0:03:92  192.168.45.150  -NA-           2022-11-16 10:09:36 -NA-                
+b9:20:2f:1e:ac:bc  192.168.45.111  -NA-           2022-11-16 10:09:33 -NA-                
+ca:e8:8c:4e:23:ab  192.168.45.141  -NA-           2022-11-16 10:09:35 -NA-                
+cf:c6:31:a0:ca:cb  192.168.45.138  -NA-           2022-11-16 10:09:35 -NA-                
+d2:4a:fc:7d:f2:99  192.168.45.137  -NA-           2022-11-16 10:09:35 -NA-                
+d3:ab:76:81:5d:68  192.168.45.117  -NA-           2022-11-16 10:09:33 -NA-                
+dd:e8:97:19:6e:95  192.168.45.114  -NA-           2022-11-16 10:09:33 -NA-                
+de:26:07:19:20:44  192.168.45.124  -NA-           2022-11-16 10:09:34 -NA-                
+de:7e:e1:09:6d:06  192.168.45.106  -NA-           2022-11-16 10:09:32 -NA-                
+de:a7:98:2c:ab:f6  192.168.45.144  -NA-           2022-11-16 10:09:36 -NA-                
+e2:d6:b8:0a:89:f4  192.168.45.110  -NA-           2022-11-16 10:09:33 -NA-                
+e6:52:d3:96:b8:77  192.168.45.134  -NA-           2022-11-16 10:09:35 -NA-                
+e9:35:cb:cf:6d:51  192.168.45.133  -NA-           2022-11-16 10:09:35 -NA-                
+e9:98:ac:5c:37:18  192.168.45.123  -NA-           2022-11-16 10:09:34 -NA-                
+ed:5c:02:6b:61:99  192.168.45.112  -NA-           2022-11-16 10:09:33 -NA-                
+ef:e7:80:4c:a5:c5  192.168.45.116  -NA-           2022-11-16 10:09:33 -NA-                
+f0:79:bb:e9:a7:bb  192.168.45.129  -NA-           2022-11-16 10:09:34 -NA-                
+f7:a2:3c:c1:eb:13  192.168.45.109  -NA-           2022-11-16 10:09:33 -NA-                

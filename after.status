@@ -1,0 +1,21 @@
+● isc-dhcp-server.service - LSB: DHCP server
+     Loaded: loaded (/etc/init.d/isc-dhcp-server; generated)
+     Active: active (running) since Wed 2022-11-16 12:02:54 IST; 2min 30s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 25402 ExecStart=/etc/init.d/isc-dhcp-server start (code=exited, status=0/SUCCESS)
+      Tasks: 1 (limit: 9378)
+     Memory: 3.9M
+        CPU: 100ms
+     CGroup: /system.slice/isc-dhcp-server.service
+             └─25415 /usr/sbin/dhcpd -4 -q -cf /etc/dhcp/dhcpd.conf eth0
+
+Nov 16 12:05:21 kali dhcpd[25415]: Reclaiming abandoned lease 192.168.45.103.
+Nov 16 12:05:21 kali dhcpd[25415]: Reclaiming abandoned lease 192.168.45.103.
+Nov 16 12:05:21 kali dhcpd[25415]: Reclaiming abandoned lease 192.168.45.103.
+Nov 16 12:05:22 kali dhcpd[25415]: DHCPOFFER on 192.168.45.103 to 00:52:52:08:44:c1 (hacked your server moran ;)IDHM;) ) via eth0
+Nov 16 12:05:22 kali dhcpd[25415]: Reclaiming REQUESTed abandoned IP address 192.168.45.103.
+Nov 16 12:05:22 kali dhcpd[25415]: DHCPREQUEST for 192.168.45.103 from 00:52:52:08:44:c1 (hacked your server moran ;)IDHM;) ) via eth0
+Nov 16 12:05:22 kali dhcpd[25415]: DHCPACK on 192.168.45.103 to 00:52:52:08:44:c1 (hacked your server moran ;)IDHM;) ) via eth0
+Nov 16 12:05:22 kali dhcpd[25415]: DHCPDISCOVER from 64:44:b0:9f:9d:6d via eth0: network 192.168.45.0/24: no free leases
+Nov 16 12:05:23 kali dhcpd[25415]: DHCPREQUEST for 192.168.45.101 from 00:0c:29:13:44:f3 (kali) via eth0
+Nov 16 12:05:23 kali dhcpd[25415]: DHCPACK on 192.168.45.101 to 00:0c:29:13:44:f3 (kali) via eth0
