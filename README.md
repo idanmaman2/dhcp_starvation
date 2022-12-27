@@ -15,6 +15,7 @@ network:
       addresses:
         - <personal local network  address> /<cidr>
      version:2
+>> sudo /etc/init.d/networking restart
 >> sudo nano /etc/dhcp/dhcpd.conf
 subnet <personal local network  address> <sub network mask> {
   range <start given address> <end of seq of addresses> ;
